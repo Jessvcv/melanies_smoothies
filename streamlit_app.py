@@ -42,8 +42,8 @@ if ingredients_list:
         st.subheader(fruit_chosen + ' Nutrition Information')
         
         # Use search_on instead of fruit_chosen for the API request
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)  
-        st.json(fruityvice_response.json())
+        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")  
+        st.json(smoothiefroot_response.json())
 
     # st.write(ingredients_string)
 
