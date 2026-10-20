@@ -5,8 +5,8 @@ from snowflake.snowpark.functions import col
 # Write directly to the app
 st.title(f":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
 st.write(
-  """Choose the fruits you want in your custom Smoothie!
-  """
+    """Choose the fruits you want in your custom Smoothie!
+    """
 )
 
 name_on_order = st.text_input('Name on Smoothie:')
@@ -29,13 +29,13 @@ if ingredients_list:
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
 
-    #st.write(ingredients_string)
+    # st.write(ingredients_string)
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
-                    values ('""" + ingredients_string + """', '""" + name_on_order + """')"""
+                        values ('""" + ingredients_string + """', '""" + name_on_order + """')"""
 
-    #st.write(my_insert_stmt)
-    #st.stop()
+    # st.write(my_insert_stmt)
+    # st.stop()
     time_to_insert = st.button('Submit Order')
 
     if time_to_insert:
