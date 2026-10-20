@@ -42,7 +42,7 @@ if ingredients_list:
         
         # Use search_on instead of fruit_chosen for the API request
         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + search_on)  
-        st.json(smoothiefroot_response.json())
+        st.json(smoothiefroot_response.json(), use_container_width=True)
 
     # st.write(ingredients_string)
 
