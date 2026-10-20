@@ -16,11 +16,12 @@ st.write('The name on your smoothie will be:', name_on_order)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
+
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
 
 # Convert Snowpark dataframe to a Pandas dataframe so we can use .loc lookup
 pd_df = my_dataframe.to_pandas()
-# st.dataframe(data=pd_df, use_container_width=True)
+# st.dataframe(pd_df)
 # st.stop()
 
 ingredients_list = st.multiselect(
@@ -41,7 +42,7 @@ if ingredients_list:
         st.subheader(fruit_chosen + ' Nutrition Information')
         
         # Use search_on instead of fruit_chosen for the API request
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + search_on)  
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)  
         st.json(smoothiefroot_response.json(), use_container_width=True)
 
     # st.write(ingredients_string)
